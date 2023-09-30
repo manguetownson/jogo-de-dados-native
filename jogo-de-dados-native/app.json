@@ -1,30 +1,38 @@
 {
-  "expo": {
-    "name": "jogo-de-dados-native",
-    "slug": "jogo-de-dados-native",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+    "expo": {
+      "name": "jogo-de-dados-native",
+      "slug": "jogo-de-dados-native",
+      "version": "1.0.0",
+      "orientation": "portrait",
+      "icon": "./assets/icon.png",
+      "userInterfaceStyle": "light",
+      "splash": {
+        "image": ".src/assets/splash.png",
+        "resizeMode": "contain",
         "backgroundColor": "#ffffff"
+      },
+      "assetBundlePatterns": [
+        "**/*"
+      ],
+      "ios": {
+        "supportsTablet": true,
+        "bundleIdentifier": "dadosnative.demo.com"
+      },
+      "android": {
+        "adaptiveIcon": {
+          "foregroundImage": "./assets/adaptive-icon.png",
+          "backgroundColor": "#ffffff"
+        },
+        "package": "dadosnative.demo.com"
+      },
+      "web": {
+        "favicon": "./assets/favicon.png"
+      },
+      "extra": {
+        "eas": {
+          "projectId": "326ced49-2efc-477f-b9dc-a782c6e00a1f"
+        }
       }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
   }
-}
+  

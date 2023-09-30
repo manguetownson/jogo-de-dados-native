@@ -1,10 +1,14 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const HomeScreen = ({ navigation }) => {
+
+
+const HomeScreen = () => {
+  const navigation = useNavigation()
   const startGame = () => {
     // Navegar para a tela do jogo (GameScreen)
-    navigation.navigate('GameScreen');
+    navigation.navigate("GameScreen");
   };
 
   return (
