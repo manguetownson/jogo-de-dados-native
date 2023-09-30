@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { View, StyleSheet, Text, Button, Modal } from 'react-native';
-import Game from './Game';
-import HistoryScreen from './HistoryScreen'; // Você pode integrar o histórico aqui
-
+import Game from '../components/Game.js';
+import HistoryScreen from './HistoryScreen.js'; 
 
 const GameScreen = () => {
     const [isHistoryVisible, setIsHistoryVisible] = useState(false);
