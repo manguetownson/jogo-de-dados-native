@@ -1,7 +1,7 @@
 // Game.js
 import React, { useState, useStore } from 'react';
 import { View, Button, Text } from 'react-native';
-import Dice from './Dice';
+import Dice from './Dice.js';
 
 const Game = () => {
   const [playerDiceValue, setPlayerDiceValue] = useState(null);
@@ -208,7 +208,7 @@ const Game = () => {
         <Button title="Deitar" onPress={() => handleBetSelect('deitar')} />
         <Button title="Hardways" onPress={() => handleBetSelect('hardways')} />
       </View>
-      <Button title="Lançar Dados" onPress={handleRollDice} />
+      <Button title="Lançar Dados" onPress={()=>handleRollDice()} />
       {gameState === 'won' && <Text>Você ganhou!</Text>}
       {gameState === 'lost' && <Text>Você perdeu.</Text>}
       {selectedBet && <Text>Você apostou: {selectedBet}</Text>}

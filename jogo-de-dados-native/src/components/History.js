@@ -1,7 +1,6 @@
 // History.js
-import React, { useEffect } from 'react';
+import React, { useEffect, useStore } from 'react'; // Importe o hook do Zustand
 import { SectionList, Text, View } from 'react-native';
-import { useStore } from './store'; // Importe o hook do Zustand
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const History = () => {
