@@ -1,12 +1,12 @@
 // History.js
 import React, { useEffect, useStore } from 'react'; // Importe o hook do Zustand
-import { SectionList, Text, View } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import create from 'zustand';
+import { AsyncStorage, SectionList, Text, View } from 'react-native';
+import {create} from 'zustand';
+
 
 const useStore = create((set) => ({
   history: [],
-  addToHistory: (item) => set((state) => ({ history: [...state.history, item] })),
+  addToHistory: (item) => set((state) => ({ history: state.history, item })),
   clearHistory: () => set({ history: [] }),
 }));
 

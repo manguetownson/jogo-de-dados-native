@@ -10,10 +10,6 @@ const Game = () => {
   const [selectedBet, setSelectedBet] = useState(null); // 'pass', 'dontPass'
   const [point, setPoint] = useState(null);
 
-  const Gamehistory = (gameState, playerResult, machineResult) => {
-    const { addToHistory } = useStore()
-  };
-
   const handleRollDice = () => {
     // Lógica para lançar os dados e determinar os resultados
     // Atualize playerDiceValue, machineDiceValue, gameState e point de acordo
@@ -184,23 +180,25 @@ const Game = () => {
           console.log('lost');
           
         }
-      }               
-  useEffect(() =>{
-    // Se o jogo terminou, adiciona o resultado ao histórico
-    if (gameState === 'won' || gameState === 'lost') {
-      const result = gameState === 'won' ? 'Vitória' : 'Derrota';
-      const playInfo = `Resultado: ${result}. Dados: Jogador - ${playerResult}, Máquina - ${machineResult}`;
-      addToHistory(playInfo);
-    }
-  }, [gameState, playerResult, machineResult, addToHistory]);
-
-  }; 
-  
+      }
+  const History = () => {
+      const { gameState, playerResult, machineResult } = useStore();
+          
+        useEffect(() => {
+          // Se o jogo terminou, adiciona o resultado ao histórico
+          if (gameState === 'won' || gameState === 'lost') {
+            const result = gameState === 'won' ? 'Vitória' : 'Derrota';
+            const playInfo = `Resultado: ${result}. Dados: Jogador - ${playerResult}, Máquina - ${machineResult}`;
+            useStore(playInfo);
+          }
+          }, [gameState, playerResult, machineResult]);
+          }
 
   const handleBetSelect = (betType) => {
     setSelectedBet(betType);
   };
-
+}
+    
   return (
     <View>
       <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
