@@ -1,5 +1,5 @@
 // Game.js
-import React, { useState, useStore } from 'react';
+import React, { useEffect, useState, useStore } from 'react';
 import { View, Button, Text } from 'react-native';
 import Dice from './Dice.js';
 
@@ -10,7 +10,9 @@ const Game = () => {
   const [selectedBet, setSelectedBet] = useState(null); // 'pass', 'dontPass'
   const [point, setPoint] = useState(null);
 
-  const { addToHistory } = useStore();
+  const Gamehistory = (gameState, playerResult, machineResult) => {
+    const { addToHistory } = useStore()
+  };
 
   const handleRollDice = () => {
     // Lógica para lançar os dados e determinar os resultados
@@ -183,12 +185,17 @@ const Game = () => {
           
         }
       }               
+  useEffect(() =>{
     // Se o jogo terminou, adiciona o resultado ao histórico
     if (gameState === 'won' || gameState === 'lost') {
-        const result = gameState === 'won' ? 'Vitória' : 'Derrota';
-        addToHistory(`Resultado: ${result}. Dados: Jogador - ${playerResult}, Máquina - ${machineResult}`);
-      }  
-  };
+      const result = gameState === 'won' ? 'Vitória' : 'Derrota';
+      const playInfo = `Resultado: ${result}. Dados: Jogador - ${playerResult}, Máquina - ${machineResult}`;
+      addToHistory(playInfo);
+    }
+  }, [gameState, playerResult, machineResult, addToHistory]);
+
+  }; 
+  
 
   const handleBetSelect = (betType) => {
     setSelectedBet(betType);
