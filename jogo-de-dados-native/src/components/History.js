@@ -6,9 +6,9 @@ import {create} from 'zustand';
 
 
 const useStore = create((set) => ({
-  history: [],
+  history: 0,
   addToHistory: (item) => set((state) => ({ history: state.history, item })),
-  clearHistory: () => set({ history: [] }),
+  clearHistory: () => set({ history: 0 }),
 }));
 
 const History = () => {
