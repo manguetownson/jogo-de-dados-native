@@ -16,7 +16,7 @@ const HomeScreen = () => {
       <Text style={styles.title}>Bem-vindo ao Jogo de Dados!</Text>
       <Text style={styles.subtitle}>Escolha um tipo de aposta para começar:</Text>
       
-      {/* Botão para iniciar o jogo */}
+      
       <TouchableOpacity onPress={startGame} style={styles.button}>
         <Text style={styles.buttonText}>Iniciar Jogo</Text>
       </TouchableOpacity>
