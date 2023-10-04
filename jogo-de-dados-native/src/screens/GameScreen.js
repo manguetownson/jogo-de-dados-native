@@ -24,10 +24,10 @@ const GameScreen = () => {
   
     return (
       <View style={styles.container}>
-        <Game addToHistory={addToHistory} /> {/* Passa a função addToHistory como propriedade para o componente do jogo */}
+        <Game addToHistory={addToHistory} />   
         <Button title="Ver Histórico" onPress={showHistoryModal} />
         
-        {/* Modal para exibir o histórico */}
+        
         <Modal
           visible={isHistoryVisible}
           animationType="slide"
@@ -36,7 +36,7 @@ const GameScreen = () => {
         >
           <View style={styles.modalContainer}>
             <Button title="Fechar" onPress={hideHistoryModal} />
-            <HistoryScreen data={historyData} /> {/* Passa o histórico como propriedade para o componente de histórico */}
+            <HistoryScreen data={historyData} /> 
           </View>
         </Modal>
       </View>
