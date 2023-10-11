@@ -9,6 +9,20 @@ export const useStore = create(
       increaseHistory: (payload) =>
        set((state) => {
          console.log("payload =", payload);
+         const title = `${payload.date.getFullYear()}-${
+            payload.date.getMonth() + 1
+        }`;
+         const index = state.history.findIndex(v => v.title === title);
+         const history = {
+            date: payload.date.toString(),
+            result: payload.result,
+        };
+         if (index == -1){
+            state.history.unshift({title, data:[history]})
+         } 
+         else{
+            state.history[index].data.unshift(history);
+         }
          return state;
          }),
       clearHistory: () => set({ history: [] }),
