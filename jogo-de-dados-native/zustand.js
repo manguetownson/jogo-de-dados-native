@@ -5,9 +5,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 export const useStore = create(
   persist(
     (set) => ({
-      history: 0,
-      increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-      removeAllBears: () => set({ bears: 0 }),
+      history: [],
+      increaseHistory: () => set((state) => ({ history: state.history + 1 })),
+      clearHistory: () => set({ history: 0 }),
     }),
     {
       name: "score-storage", // name of the item in the storage (must be unique)
