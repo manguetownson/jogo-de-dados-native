@@ -6,8 +6,12 @@ export const useStore = create(
   persist(
     (set) => ({
       history: [],
-      increaseHistory: () => set((state) => ({ history: state.history + 1 })),
-      clearHistory: () => set({ history: 0 }),
+      increaseHistory: (payload) =>
+       set((state) => {
+         console.log("payload =", payload);
+         return state;
+         }),
+      clearHistory: () => set({ history: [] }),
     }),
     {
       name: "score-storage", // name of the item in the storage (must be unique)
