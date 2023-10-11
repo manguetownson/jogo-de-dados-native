@@ -1,25 +1,19 @@
 // History.js
-import React, { useEffect, useStore } from 'react'; // Importe o hook do Zustand
+import React, { useEffect } from 'react'; // Importe o hook do Zustand
 import { SectionList, Text, View } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {create} from 'zustand';
+import { useStore } from '../../zustand';
 
 
-const useStore = create((set) => ({
-  history: 0,
-  addToHistory: (item) => set((state) => ({ history: state.history, item })),
-  clearHistory: () => set({ history: 0 }),
-}));
-
-const History = () => {
+const History = ({ history }) => {
  
-  const {history, addToHistory, clearHistory} = useStore();
+  const {history, increaseHistory, clearHistory} = useStore();
 
   const loadHistory = async () => {
     try {
       const savedHistory = await AsyncStorage.getItem('history');
       if (savedHistory !== null) {
-        addToHistory(JSON.parse(savedHistory));
+        increaseHistory(JSON.parse(savedHistory));
       }
     } catch (error) {
       console.error('Erro ao carregar o histórico:', error);
@@ -51,6 +45,6 @@ const History = () => {
       </View>
     </View>
   );
-};
+        };
 
 export default History;
